@@ -1,17 +1,17 @@
 # Base configs
-baseurl: "https://photography.rampatra.com"
+baseurl: ""
 # baseurl: "" # Comment the above line and uncomment this to test the website locally
 image_fulls_loc: "/images/fulls"
 image_thumbs_loc: "/images/thumbs"
 google_analytics: "UA-46465113-2"
 
 # UI configs
-title: "Photography by Ram Patra"
+title: "Photography by Anik Debnath"
 subtitle: "See the world through my eyes!"
-author: "Ram Patra"
+author: "Anik Debnath"
 header:
  title: "Photography"
- subtitle: "by Ram Patra"
+ subtitle: "by Anik Debnath"
 footer:
  name: "Hey there, my name is Ram"
  bio: "I am a software developer and a tech aficionado. Love making teeny tiny apps solving tiny problems in life and now learning photography."
@@ -19,11 +19,11 @@ footer:
 web_design: "AJ"
 
 social_urls:
-  twitter: "https://www.twitter.com/rampatra_"
-  instagram: "https://www.instagram.com/ram_patra"
-  dribbble: "https://dribbble.com/rampatra"
-  linkedin: "https://in.linkedin.com/in/ram-patra"
-  github: "https://www.github.com/rampatra"
+  twitter: ""
+  instagram: "https://www.instagram.com/clicks_n_sketches"
+  facebook: "https://www.facebook.com/clicksnsketches"
+  linkedin: ""
+  github: "https://www.github.com/clicksnsketches"
 
 # Configure which exif data to display
 # Tag is the actual exif tag, icon is a fontawesome icon. Use JSON notation without line breaks
