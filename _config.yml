@@ -14,15 +14,17 @@ header:
  subtitle: "by Anik Debnath"
 footer:
  name: "Hey there, my name is Anik"
- bio: "I love to click & draw, mechanical engineer by profession. Here you will will find my travel & wildlife photography"
- github: "Want a website like this for yourself for free? Just <a href=\"https://github.com/rampatra/photography\">fork this repo on github</a> ;)"
+ bio: "By day, I speak the language of gears, machines and precision. But my heart speaks in light, shadow and ink.
+
+​I am Anik Debnath—an engineer trained to understand how the world works, and an artist driven to capture how it feels. Here, I trade my blueprints for wide horizons and my calipers for a shutter. From the raw, untamed silence of the wildlife reserves to the vibrant chaos of my travels, this is my archive of frozen time.
+
+​Welcome to my world, where the structured mind meets the wandering soul."
+ 
 web_design: "AD"
 
 social_urls:
-  twitter: ""
   instagram: "https://www.instagram.com/clicks_n_sketches"
   facebook: "https://www.facebook.com/clicksnsketches"
-  linkedin: ""
   github: "https://www.github.com/clicksnsketches"
 
 # Configure which exif data to display
