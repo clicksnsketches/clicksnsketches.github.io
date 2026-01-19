@@ -21,8 +21,7 @@ web_design: "AD"
 social_urls:
   instagram: "https://www.instagram.com/clicks_n_sketches"
   facebook: "https://www.facebook.com/clicksnsketches"
-  github: "https://www.github.com/clicksnsketches"
-
+  
 # Configure which exif data to display
 # Tag is the actual exif tag, icon is a fontawesome icon. Use JSON notation without line breaks
 exif: '[{"tag": "Model", "icon": "fa fa-camera-retro"}, {"tag": "FNumber", "icon": "far fa-dot-circle"}, {"tag": "ExposureTime", "icon": "far fa-clock"}, {"tag": "ISOSpeedRatings", "icon": "fa fa-info-circle"}]'
