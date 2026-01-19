@@ -2,10 +2,8 @@
 layout: default
 ---
 
-<!-- Wrapper -->
 <div id="wrapper">
 
-    <!-- Header -->
     <header id="header">
         <h1><a href="index.html"><strong>{{ site.header.title }}</strong> {{ site.header.subtitle }}</a></h1>
         <nav>
@@ -15,7 +13,6 @@ layout: default
         </nav>
     </header>
 
-    <!-- Main -->
     <div id="main" data-exif='{{ site.exif }}'>
         {% for image in site.static_files %}
         {% if image.path contains 'fulls' %}
@@ -23,14 +20,11 @@ layout: default
             <a href="{{ site.baseurl }}{{ site.image_fulls_loc }}/{{ image.name }}" class="image">
                 <img src="{{ site.baseurl }}{{ site.image_thumbs_loc }}/{{ image.name }}" alt=""
                      data-name="{{ image.name }}"/></a>
-            <!--<h2></h2>
-            <p></p>-->
         </article>
         {% endif %}
         {% endfor %}
     </div>
 
-    <!-- Footer -->
     <footer id="footer" class="panel">
         <div class="inner split">
             <div>
@@ -43,46 +37,22 @@ layout: default
                     <h2>Follow me on ...</h2>
                     <ul class="icons">
                         {% if site.social_urls.facebook %}
-                            <li>
-                                <a href="{{ site.social_urls.facebook }}" class="icon brands fa-facebook">
-                                    <span class="label">Facebook</span>
-                                </a>
-                            </li>
+                            <li><a href="{{ site.social_urls.facebook }}" class="icon brands fa-facebook"><span class="label">Facebook</span></a></li>
                         {% endif %}
                         {% if site.social_urls.twitter %}
-                            <li>
-                                <a href="{{ site.social_urls.twitter }}" class="icon brands fa-twitter">
-                                    <span class="label">Twitter</span>
-                                </a>
-                            </li>
+                            <li><a href="{{ site.social_urls.twitter }}" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
                         {% endif %}
                         {% if site.social_urls.instagram %}
-                            <li>
-                                <a href="{{ site.social_urls.instagram }}" class="icon brands fa-instagram">
-                                    <span class="label">Instagram</span>
-                                </a>
-                            </li>
+                            <li><a href="{{ site.social_urls.instagram }}" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
                         {% endif %}
                         {% if site.social_urls.dribbble %}
-                            <li>
-                                <a href="{{ site.social_urls.dribbble }}" class="icon brands fa-dribbble">
-                                    <span class="label">Dribbble</span>
-                                </a>
-                            </li>
+                            <li><a href="{{ site.social_urls.dribbble }}" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
                         {% endif %}
                         {% if site.social_urls.github %}
-                            <li>
-                                <a href="{{ site.social_urls.github }}" class="icon brands fa-github">
-                                    <span class="label">GitHub</span>
-                                </a>
-                            </li>
+                            <li><a href="{{ site.social_urls.github }}" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
                         {% endif %}
                         {% if site.social_urls.linkedin %}
-                            <li>
-                                <a href="{{ site.social_urls.linkedin }}" class="icon brands fa-linkedin">
-                                    <span class="label">LinkedIn</span>
-                                </a>
-                            </li>
+                            <li><a href="{{ site.social_urls.linkedin }}" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
                         {% endif %}
                     </ul>
                 </section>
@@ -93,9 +63,10 @@ layout: default
             <div>
                 <section>
                     <h2>Get in touch</h2>
-<div id="success-message" style="display:none; text-align:center; padding: 20px;">
-                        <h3 style="color: #ffffff;">Thank you!</h3>
-                        <p>Your message has been sent successfully.</p>
+
+                    <div id="success-message" style="display:none; text-align:center; padding: 20px;">
+                        <h3 style="color: #ffffff;">Message Sent!</h3>
+                        <p>Thank you for contacting me. I will get back to you shortly.</p>
                     </div>
 
                     <form id="contact-form" method="post" action="https://script.google.com/macros/s/AKfycbwjFAv_-VkC0aQzQ4---fxEn1MsuNDsXGE2i0pflMOJCmiZrrQOkfkejo_cocre5Dw8/exec">
@@ -115,8 +86,54 @@ layout: default
                             <li><input type="reset" value="Reset" /></li>
                         </ul>
                     </form>
+
                 </section>
             </div>
         </div>
     </footer>
 </div>
+
+<script>
+// We wrap the code in window.onload to ensure the HTML is fully ready before we try to attach the event listener.
+window.addEventListener("load", function() {
+    
+    const form = document.getElementById('contact-form');
+    const successMessage = document.getElementById('success-message');
+    const submitBtn = document.getElementById('submit-btn');
+
+    // Only run if the form actually exists on the page
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            // 1. STOP the form from redirecting to the Google Script page
+            e.preventDefault(); 
+            
+            // 2. Change Button to "Sending..."
+            const originalBtnText = submitBtn.value;
+            submitBtn.value = "Sending...";
+            submitBtn.disabled = true;
+
+            // 3. Collect the data
+            const data = new FormData(form);
+
+            // 4. Send data via Fetch API
+            fetch(form.action, {
+                method: 'POST',
+                body: data,
+                mode: 'no-cors' // IMPORTANT: This prevents CORS errors with Google Scripts
+            })
+            .then(() => {
+                // 5. On success, hide form and show message
+                form.style.display = 'none';
+                successMessage.style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // If it fails, reset the button so they can try again
+                submitBtn.value = originalBtnText;
+                submitBtn.disabled = false;
+                alert('There was an error sending your message. Please try again.');
+            });
+        });
+    }
+});
+</script>
